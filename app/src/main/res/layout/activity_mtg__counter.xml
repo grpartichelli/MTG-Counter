@@ -26,7 +26,7 @@
         android:textSize="100sp"
         app:layout_constraintBottom_toTopOf="@+id/player_two_background"
         app:layout_constraintEnd_toStartOf="@+id/player_one_plus_button"
-
+        android:rotation="180"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/player_one_minus_button"
         app:layout_constraintTop_toTopOf="@+id/player_one_background" />
@@ -77,7 +77,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-smallcaps"
-        android:rotation="180"
         android:text="20"
         android:textColor="#ece7e7"
         android:textSize="100sp"
