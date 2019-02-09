@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#31373a</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+   <color name="colorBlack">#000</color>
+   <color name="colorAlmostWhite">#fff</color>
+
+   <!-- Official MTG colors-->
+   <color name="mtgGreen">#00733e</color>
+   <color name="mtgBlack">#150b00</color>
+   <color name="mtgBlue">#0e68ab</color>
+   <color name="mtgRed">#d3202a</color>
+   <color name="mtgWhite">#f9faf4</color>
 </resources>

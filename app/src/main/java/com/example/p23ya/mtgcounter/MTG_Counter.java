@@ -1,5 +1,6 @@
 package com.example.p23ya.mtgcounter;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -82,17 +83,22 @@ public class MTG_Counter extends AppCompatActivity {
     }
 
     //Function that lowers player HP and displays it on screen
-    public void lowerHP(int playerHP, TextView player){
+    public void lowerHP(int playerHP, TextView playerView){
 
-        if(playerHP > 0 ) {
-            playerHP--;
+        playerHP--;
+
+        //If a player HP goes 0 or lower, it becomes red.
+        if(playerHP <= 0 ) {
+            playerView.setTextColor(Color.RED);
         }
 
+
+
         //Changes the textview
-        player.setText(Integer.toString(playerHP));
+        playerView.setText(Integer.toString(playerHP));
 
         //Changes the outside variable accordingly to what textview is being changed
-        if(player == ((TextView) findViewById(R.id.player_one_hp_textview))){
+        if(playerView == ((TextView) findViewById(R.id.player_one_hp_textview))){
             this.playerOneHP = playerHP;
         }
         else{
@@ -102,18 +108,26 @@ public class MTG_Counter extends AppCompatActivity {
     }
 
     //Function increases player HP and displays it on screen
-    public void increaseHP(int playerHP, TextView player){
+    public void increaseHP(int playerHP, TextView playerView){
+
+
 
         if(playerHP < 2147483647 ) {
             playerHP++;
         }
 
+        //If player HP is higher then 0, it is white.
+        if(playerHP > 0 ){
+            playerView.setTextColor(Color.parseColor("#ece7e7"));
+        }
+
+
         //Changes the textview
-        player.setText(Integer.toString(playerHP));
+        playerView.setText(Integer.toString(playerHP));
 
 
         //Changes the outside variable accordingly to what textview is being changed
-        if(player == ((TextView) findViewById(R.id.player_one_hp_textview))){
+        if(playerView == ((TextView) findViewById(R.id.player_one_hp_textview))){
             this.playerOneHP = playerHP;
         }
         else{

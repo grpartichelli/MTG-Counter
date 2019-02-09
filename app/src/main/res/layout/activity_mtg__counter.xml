@@ -15,21 +15,23 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:color/holo_blue_dark" />
+        app:srcCompat="@color/mtgBlue" />
 
     <TextView
         android:id="@+id/player_one_hp_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="20"
-        android:textColor="#ece7e7"
+        android:textColor="@color/colorAlmostWhite"
         android:textSize="100sp"
         app:layout_constraintBottom_toTopOf="@+id/player_two_background"
         app:layout_constraintEnd_toStartOf="@+id/player_one_plus_button"
         android:rotation="180"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/player_one_minus_button"
-        app:layout_constraintTop_toTopOf="@+id/player_one_background" />
+        app:layout_constraintTop_toTopOf="@+id/player_one_background"
+        android:alpha="0.8"
+        />
 
     <Button
         android:id="@+id/player_one_minus_button"
@@ -70,7 +72,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/player_one_background"
-        app:srcCompat="@android:color/holo_green_light" />
+        app:srcCompat="@color/mtgGreen" />
 
     <TextView
         android:id="@+id/player_two_hp_textview"
@@ -78,13 +80,15 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-smallcaps"
         android:text="20"
-        android:textColor="#ece7e7"
+        android:textColor="@color/colorAlmostWhite"
         android:textSize="100sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/player_two_plus_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/player_two_minus_button"
-        app:layout_constraintTop_toTopOf="@+id/player_two_background" />
+        app:layout_constraintTop_toTopOf="@+id/player_two_background"
+        android:alpha="0.8"
+        />
 
     <Button
         android:id="@+id/player_two_minus_button"
