@@ -15,22 +15,49 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/mtgBlue" />
+        app:srcCompat="@color/mtgGreen" />
 
     <TextView
+
         android:id="@+id/player_one_hp_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="20"
-        android:textColor="@color/colorAlmostWhite"
+        android:textColor="@color/colorWhite"
         android:textSize="100sp"
+
+        android:alpha="0.8"
+        android:rotation="180"
+
         app:layout_constraintBottom_toTopOf="@+id/player_two_background"
         app:layout_constraintEnd_toStartOf="@+id/player_one_plus_button"
-        android:rotation="180"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/player_one_minus_button"
         app:layout_constraintTop_toTopOf="@+id/player_one_background"
+
+
+        />
+
+    <Button
+        android:id="@+id/player_one_plus_button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="+"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
         android:alpha="0.8"
+        android:background="@android:color/transparent"
+
+        app:layout_constraintBottom_toTopOf="@+id/player_two_background"
+        app:layout_constraintEnd_toStartOf="@+id/player_one_hp_textview"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+
         />
 
     <Button
@@ -42,21 +69,11 @@
         android:text="-"
         android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/player_two_background"
-        app:layout_constraintEnd_toStartOf="@+id/player_one_hp_textview"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/colorWhite"
 
-    <Button
-        android:id="@+id/player_one_plus_button"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text="+"
-        android:textSize="40sp"
-        android:textStyle="bold"
+        android:alpha="0.8"
+        android:background="@android:color/transparent"
+
         app:layout_constraintBottom_toTopOf="@+id/player_two_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -72,23 +89,25 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/player_one_background"
-        app:srcCompat="@color/mtgGreen" />
+        app:srcCompat="@color/mtgBlue" />
 
     <TextView
         android:id="@+id/player_two_hp_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
+
+        android:alpha="0.8"
+        android:fontFamily="sans-serif"
         android:text="20"
-        android:textColor="@color/colorAlmostWhite"
+        android:textColor="@color/colorWhite"
         android:textSize="100sp"
+
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/player_two_plus_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/player_two_minus_button"
-        app:layout_constraintTop_toTopOf="@+id/player_two_background"
-        android:alpha="0.8"
-        />
+        app:layout_constraintTop_toTopOf="@+id/player_two_background" />
 
     <Button
         android:id="@+id/player_two_minus_button"
@@ -99,6 +118,10 @@
         android:text="-"
         android:textSize="40sp"
         android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:alpha="0.8"
+        android:background="@android:color/transparent"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/player_two_hp_textview"
         app:layout_constraintHorizontal_bias="0.5"
@@ -113,6 +136,10 @@
         android:text="+"
         android:textSize="40sp"
         android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:alpha="0.8"
+        android:background="@android:color/transparent"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

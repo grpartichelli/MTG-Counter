@@ -89,7 +89,7 @@ public class MTG_Counter extends AppCompatActivity {
 
         //If a player HP goes 0 or lower, it becomes red.
         if(playerHP <= 0 ) {
-            playerView.setTextColor(Color.RED);
+            playerView.setTextColor(getResources().getColor(R.color.darkerRed, getResources().newTheme()));
         }
 
 
@@ -118,7 +118,7 @@ public class MTG_Counter extends AppCompatActivity {
 
         //If player HP is higher then 0, it is white.
         if(playerHP > 0 ){
-            playerView.setTextColor(Color.parseColor("#ece7e7"));
+            playerView.setTextColor(getResources().getColor(R.color.colorWhite, getResources().newTheme()));
         }
 
 
