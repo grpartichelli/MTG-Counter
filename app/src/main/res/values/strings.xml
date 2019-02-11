@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MTG Counter</string>
 
+    <string name="reset_HP">Reset HP</string>
+    <string name="start_HP">20</string>
+
 </resources>
