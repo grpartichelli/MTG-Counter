@@ -10,16 +10,18 @@
         layout="@layout/toolbar"
         android:id="@+id/toolbar"/>
 
+
     <ImageView
         android:id="@+id/player_one_background"
         android:layout_width="0dp"
         android:layout_height="0dp"
+
         app:layout_constraintBottom_toTopOf="@+id/player_two_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:srcCompat="@color/mtgGreen" />
+
 
     <TextView
 
@@ -27,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/start_HP"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:textSize="100sp"
 
         android:alpha="0.8"
@@ -52,7 +54,7 @@
         android:background="@android:color/transparent"
         android:fontFamily="serif"
         android:text="+"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
 
         android:textSize="40sp"
         android:textStyle="bold"
@@ -73,7 +75,7 @@
         android:text="-"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
 
         android:alpha="0.8"
         android:background="@android:color/transparent"
@@ -103,7 +105,7 @@
         android:alpha="0.8"
         android:fontFamily="sans-serif"
         android:text="@string/start_HP"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:textSize="100sp"
 
 
@@ -122,7 +124,7 @@
         android:text="-"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:alpha="0.8"
         android:background="@android:color/transparent"
 
@@ -140,7 +142,7 @@
         android:text="+"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:alpha="0.8"
         android:background="@android:color/transparent"
 
@@ -149,5 +151,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/player_two_hp_textview"
         app:layout_constraintTop_toTopOf="@+id/player_two_background" />
+
+    <ImageView
+        android:id="@+id/resetHP_button"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:visibility="gone"
+
+        app:layout_constraintBottom_toBottomOf="@+id/player_two_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/player_one_background"
+        app:srcCompat="@drawable/ic_cached_black_48dp" />
+
 
 </android.support.constraint.ConstraintLayout>

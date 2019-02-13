@@ -1,21 +1,27 @@
 package com.example.p23ya.mtgcounter;
 
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 
 public class MTG_Counter extends AppCompatActivity {
     //Health starts at 20
-    private int playerOneHP=20;
-    private int playerTwoHP=20;
-    private TextView playerOneHPTextView;
-    private TextView playerTwoHPTextView;
+    private  int playerOneHP=20;
+    private  int playerTwoHP=20;
+    private  TextView playerOneHPTextView;
+    private  TextView playerTwoHPTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +29,8 @@ public class MTG_Counter extends AppCompatActivity {
         setContentView(R.layout.activity_mtg__counter);
 
         //Finds and stores player one and two hp text views
-        playerOneHPTextView = (TextView) findViewById(R.id.player_one_hp_textview);
-        playerTwoHPTextView= (TextView) findViewById(R.id.player_two_hp_textview);
+       this.playerOneHPTextView = (TextView) findViewById(R.id.player_one_hp_textview);
+       this.playerTwoHPTextView= (TextView) findViewById(R.id.player_two_hp_textview);
 
         //Configure the toolbar
         addToolbar();
@@ -32,6 +38,7 @@ public class MTG_Counter extends AppCompatActivity {
         //Configure the plus and minus buttons.
         addButtons();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,11 +55,7 @@ public class MTG_Counter extends AppCompatActivity {
         //If the button clicked was the reset button, reset players HP
         if (id == R.id.reset_HP_button) {
 
-            this.playerOneHP = 20;
-            this.playerTwoHP=20;
-
-            displayHP(playerOneHP,playerOneHPTextView);
-            displayHP(playerTwoHP,playerTwoHPTextView);
+            resetHP();
             return true;
         }
 
@@ -66,11 +69,24 @@ public class MTG_Counter extends AppCompatActivity {
 
 
     }
+
     protected void addButtons(){
 
-        //Finds the minus button for player one
+
+        ImageView resetHP = (ImageView) findViewById(R.id.resetHP_button);
+
+        resetHP.setOnClickListener(new View.OnClickListener() {
+            //When the button is pressed:
+            public void onClick(View v) {
+                //Reset players HP
+                resetHP();
+
+            }
+        });
+
+
         Button playerOneMinusButton = (Button) findViewById(R.id.player_one_minus_button);
-        //Set click listerner for minus button
+        //Set click listener for minus button
         playerOneMinusButton.setOnClickListener(new View.OnClickListener() {
             //When the button is pressed:
             public void onClick(View v) {
@@ -82,7 +98,7 @@ public class MTG_Counter extends AppCompatActivity {
 
         //Finds the plus button for player one
         Button playerOnePlusButton = (Button) findViewById(R.id.player_one_plus_button);
-        //Set click listerner for minus button
+        //Set click listener for minus button
         playerOnePlusButton.setOnClickListener(new View.OnClickListener() {
             //When the button is pressed:
             public void onClick(View v) {
@@ -96,7 +112,7 @@ public class MTG_Counter extends AppCompatActivity {
 
         //Finds the minus button for player two
         Button playerTwoMinusButton = (Button) findViewById(R.id.player_two_minus_button);
-        //Set click listerner for minus button
+        //Set click listener for minus button
         playerTwoMinusButton.setOnClickListener(new View.OnClickListener() {
             //When the button is pressed:
             public void onClick(View v) {
@@ -108,7 +124,7 @@ public class MTG_Counter extends AppCompatActivity {
 
         //Finds the plus button for player two
         Button playerTwoPlusButton = (Button) findViewById(R.id.player_two_plus_button);
-        //Set click listerner for minus button
+        //Set click listener for minus button
         playerTwoPlusButton.setOnClickListener(new View.OnClickListener() {
             //When the button is pressed:
             public void onClick(View v) {
@@ -123,7 +139,7 @@ public class MTG_Counter extends AppCompatActivity {
     }
 
     //Function that lowers player HP and displays it on screen
-    public void lowerHP(int playerHP, TextView playerView){
+    protected void lowerHP(int playerHP, TextView playerView){
 
         playerHP--;
 
@@ -142,9 +158,7 @@ public class MTG_Counter extends AppCompatActivity {
     }
 
     //Function increases player HP and displays it on screen
-    public void increaseHP(int playerHP, TextView playerView){
-
-
+    protected void increaseHP(int playerHP, TextView playerView){
 
         if(playerHP < 2147483647 ) {
             playerHP++;
@@ -168,19 +182,37 @@ public class MTG_Counter extends AppCompatActivity {
 
     //Given a HP value and a textview, alters that textview to display the value
     protected void displayHP( int playerHP, TextView playerView){
+        //Gets the resetHP button
+        ImageView resetHPButton = (ImageView) findViewById(R.id.resetHP_button);
 
-
-        //If a player HP goes 0 or lower, it becomes red.
+        //If a player HP goes 0 or lower, it becomes red. A reset button shows up
         if(playerHP <= 0 ) {
             playerView.setTextColor(getResources().getColor(R.color.darkerRed, getResources().newTheme()));
+
+            //Shows reset hp button
+
+            resetHPButton.setVisibility(View.VISIBLE);
         }
         else{
             //If player HP is higher then 0, it is white.
-            playerView.setTextColor(getResources().getColor(R.color.colorWhite, getResources().newTheme()));
+            playerView.setTextColor(getResources().getColor(R.color.colorBlack, getResources().newTheme()));
+
+            //Hides reset hp button
+
+            resetHPButton.setVisibility(View.GONE);
         }
 
         playerView.setText(Integer.toString(playerHP));
     }
 
+    //Resets to 20 and displays both players HP
+    protected void resetHP(){
 
+        this.playerOneHP = 20;
+        this.playerTwoHP=20;
+
+
+        displayHP(playerOneHP,playerOneHPTextView);
+        displayHP(playerTwoHP,playerTwoHPTextView);
+    }
 }

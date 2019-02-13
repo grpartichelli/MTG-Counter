@@ -9,4 +9,7 @@
    <color name="mtgBlue">#0e68ab</color>
    <color name="mtgRed">#d3202a</color>
    <color name="mtgWhite">#dcd987</color>
+   <!--Other colors-->
+   <color name="lightGreen">#e5ff97</color>
+
 </resources>
