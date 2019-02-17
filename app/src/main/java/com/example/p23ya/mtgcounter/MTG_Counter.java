@@ -1,18 +1,14 @@
 package com.example.p23ya.mtgcounter;
 
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
+
 import android.widget.TextView;
 
 
@@ -72,9 +68,27 @@ public class MTG_Counter extends AppCompatActivity {
 
     protected void addButtons(){
 
+        //Finds the button for the player one color picker
+        ImageView color_picker_player_one = (ImageView) findViewById(R.id.player_one_color_button);
+
+        color_picker_player_one.setOnClickListener(new View.OnClickListener() {
+            //When the button is pressed:
+            public void onClick(View v) {
+                return; //TODO
+            }
+        });
+
+        //Finds the button for  the player two color picker
+        ImageView color_picker_player_two = (ImageView) findViewById(R.id.player_two_color_button);
+        color_picker_player_two.setOnClickListener(new View.OnClickListener() {
+            //When the button is pressed:
+            public void onClick(View v) {
+                return; //TODO
+            }
+        });
+
 
         ImageView resetHP = (ImageView) findViewById(R.id.resetHP_button);
-
         resetHP.setOnClickListener(new View.OnClickListener() {
             //When the button is pressed:
             public void onClick(View v) {
@@ -197,9 +211,6 @@ public class MTG_Counter extends AppCompatActivity {
             //If player HP is higher then 0, it is white.
             playerView.setTextColor(getResources().getColor(R.color.colorBlack, getResources().newTheme()));
 
-            //Hides reset hp button
-
-            resetHPButton.setVisibility(View.GONE);
         }
 
         playerView.setText(Integer.toString(playerHP));
@@ -214,5 +225,10 @@ public class MTG_Counter extends AppCompatActivity {
 
         displayHP(playerOneHP,playerOneHPTextView);
         displayHP(playerTwoHP,playerTwoHPTextView);
+
+
+        //Gets the resetHP button
+        ImageView resetHPButton = (ImageView) findViewById(R.id.resetHP_button);
+        resetHPButton.setVisibility(View.GONE);
     }
 }

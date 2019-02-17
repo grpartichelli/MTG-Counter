@@ -3,9 +3,10 @@
    <color name="colorBlack">#000</color>
    <color name="colorWhite">#fff</color>
    <color name="darkerRed">#b60404</color>
+   <color name="colorGrey">#969393</color>
    <!-- Official MTG colors-->
    <color name="mtgGreen">#00733e</color>
-   <color name="mtgBlack">#150b00</color>
+   <color name="mtgBlack">#2b2b2a</color>
    <color name="mtgBlue">#0e68ab</color>
    <color name="mtgRed">#d3202a</color>
    <color name="mtgWhite">#dcd987</color>

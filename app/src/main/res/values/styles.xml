@@ -1,6 +1,6 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Base Application Theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorBlack</item>
@@ -8,6 +8,13 @@
         <item name="colorAccent">@color/colorBlack</item>
         <item name="android:textColorPrimary">@color/colorWhite</item>
         <item name="android:navigationBarColor">@color/colorBlack</item>
+    </style>
+
+    <!-- Toolbar Style Theme -->
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/colorBlack</item>
+        <item name="colorControlHighlight">@color/colorGrey</item>
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
 </resources>
