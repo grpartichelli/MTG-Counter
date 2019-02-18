@@ -1,11 +1,19 @@
 package com.example.p23ya.mtgcounter;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -16,17 +24,26 @@ public class MTG_Counter extends AppCompatActivity {
     //Health starts at 20
     private  int playerOneHP=20;
     private  int playerTwoHP=20;
+    //Declaring the textviews
     private  TextView playerOneHPTextView;
     private  TextView playerTwoHPTextView;
+    //Dialog for the popup color window
+    // Dialog myDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mtg__counter);
 
+
+
         //Finds and stores player one and two hp text views
-       this.playerOneHPTextView = (TextView) findViewById(R.id.player_one_hp_textview);
-       this.playerTwoHPTextView= (TextView) findViewById(R.id.player_two_hp_textview);
+
+        this.playerOneHPTextView = (TextView) findViewById(R.id.player_one_hp_textview);
+        this.playerTwoHPTextView= (TextView) findViewById(R.id.player_two_hp_textview);
+
+
 
         //Configure the toolbar
         addToolbar();
@@ -66,7 +83,12 @@ public class MTG_Counter extends AppCompatActivity {
 
     }
 
+
+
+
+
     protected void addButtons(){
+
 
         //Finds the button for the player one color picker
         ImageView color_picker_player_one = (ImageView) findViewById(R.id.player_one_color_button);
@@ -78,14 +100,33 @@ public class MTG_Counter extends AppCompatActivity {
             }
         });
 
+
+
         //Finds the button for  the player two color picker
         ImageView color_picker_player_two = (ImageView) findViewById(R.id.player_two_color_button);
+
         color_picker_player_two.setOnClickListener(new View.OnClickListener() {
             //When the button is pressed:
             public void onClick(View v) {
-                return; //TODO
+
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(MTG_Counter.this);
+
+                View mView = getLayoutInflater().inflate(R.layout.color_popup_two,null);
+
+                mBuilder.setView(mView);
+                AlertDialog dialog = mBuilder.create();
+
+                Window window = dialog.getWindow();
+                window.setGravity(Gravity.BOTTOM);
+
+                window.setLayout(CoordinatorLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+                window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
             }
+
+
         });
+
 
 
         ImageView resetHP = (ImageView) findViewById(R.id.resetHP_button);
@@ -151,6 +192,11 @@ public class MTG_Counter extends AppCompatActivity {
         );
 
     }
+
+
+
+
+
 
     //Function that lowers player HP and displays it on screen
     protected void lowerHP(int playerHP, TextView playerView){

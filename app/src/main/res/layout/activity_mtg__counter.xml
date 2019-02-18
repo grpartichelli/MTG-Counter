@@ -7,8 +7,8 @@
     tools:context=".MTG_Counter">
 
     <include
-        layout="@layout/toolbar"
-        android:id="@+id/toolbar"/>
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
 
     <ImageView
@@ -17,8 +17,8 @@
         android:layout_height="0dp"
 
         app:layout_constraintBottom_toTopOf="@+id/player_two_background"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:srcCompat="@color/mtgGreen" />
 
@@ -28,12 +28,12 @@
         android:id="@+id/player_one_hp_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/start_HP"
-        android:textColor="@color/colorBlack"
-        android:textSize="100sp"
-
         android:alpha="0.8"
         android:rotation="180"
+        android:text="@string/start_HP"
+
+        android:textColor="@color/colorBlack"
+        android:textSize="100sp"
 
         app:layout_constraintBottom_toTopOf="@+id/player_two_background"
         app:layout_constraintEnd_toStartOf="@+id/player_one_plus_button"
@@ -53,7 +53,7 @@
         android:alpha="0.8"
         android:background="@android:color/transparent"
         android:fontFamily="serif"
-        android:text="+"
+        android:text="@string/plus"
         android:textColor="@color/colorBlack"
 
         android:textSize="40sp"
@@ -71,14 +71,14 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text="-"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorBlack"
-
         android:alpha="0.8"
         android:background="@android:color/transparent"
+        android:fontFamily="serif"
+        android:text="@string/minus"
+        android:textColor="@color/colorBlack"
+
+        android:textSize="40sp"
+        android:textStyle="bold"
 
         app:layout_constraintBottom_toTopOf="@+id/player_two_background"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,13 +120,13 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text="-"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorBlack"
         android:alpha="0.8"
         android:background="@android:color/transparent"
+        android:fontFamily="serif"
+        android:text="@string/minus"
+        android:textColor="@color/colorBlack"
+        android:textSize="40sp"
+        android:textStyle="bold"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/player_two_hp_textview"
@@ -138,13 +138,13 @@
         android:id="@+id/player_two_plus_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text="+"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorBlack"
         android:alpha="0.8"
         android:background="@android:color/transparent"
+        android:fontFamily="serif"
+        android:text="@string/plus"
+        android:textColor="@color/colorBlack"
+        android:textSize="40sp"
+        android:textStyle="bold"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
