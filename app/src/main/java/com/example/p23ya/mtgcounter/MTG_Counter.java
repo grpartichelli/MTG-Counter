@@ -1,8 +1,9 @@
 package com.example.p23ya.mtgcounter;
 
-import android.app.Dialog;
+
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -27,8 +28,9 @@ public class MTG_Counter extends AppCompatActivity {
     //Declaring the textviews
     private  TextView playerOneHPTextView;
     private  TextView playerTwoHPTextView;
-    //Dialog for the popup color window
-    // Dialog myDialog;
+    //Declaring background image views
+    private ImageView playerOneBackground;
+    private ImageView playerTwoBackground;
 
 
     @Override
@@ -36,7 +38,9 @@ public class MTG_Counter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mtg__counter);
 
-
+        //Finds and stores the players background image views
+        this.playerOneBackground = (ImageView) findViewById(R.id.player_one_background);
+        this.playerTwoBackground = (ImageView) findViewById(R.id.player_two_background);
 
         //Finds and stores player one and two hp text views
 
@@ -85,8 +89,6 @@ public class MTG_Counter extends AppCompatActivity {
 
 
 
-
-
     protected void addButtons(){
 
 
@@ -96,7 +98,7 @@ public class MTG_Counter extends AppCompatActivity {
         color_picker_player_one.setOnClickListener(new View.OnClickListener() {
             //When the button is pressed:
             public void onClick(View v) {
-                return; //TODO
+                displayPlayerOneColorPicker();
             }
         });
 
@@ -108,20 +110,9 @@ public class MTG_Counter extends AppCompatActivity {
         color_picker_player_two.setOnClickListener(new View.OnClickListener() {
             //When the button is pressed:
             public void onClick(View v) {
+                //When pressed, display player two color picker
+                displayPlayerTwoColorPicker();
 
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(MTG_Counter.this);
-
-                View mView = getLayoutInflater().inflate(R.layout.color_popup_two,null);
-
-                mBuilder.setView(mView);
-                AlertDialog dialog = mBuilder.create();
-
-                Window window = dialog.getWindow();
-                window.setGravity(Gravity.BOTTOM);
-
-                window.setLayout(CoordinatorLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
-                window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
             }
 
 
@@ -187,13 +178,175 @@ public class MTG_Counter extends AppCompatActivity {
                 increaseHP(playerTwoHP, playerTwoHPTextView);
 
             }
-        }
-
-        );
+        });
 
     }
 
 
+    //Function shows the color picker buttons.
+    protected void displayPlayerOneColorPicker(){
+        //Create alert builder
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MTG_Counter.this);
+        //Inflate the view that will be displayed
+        View mView = getLayoutInflater().inflate(R.layout.color_popup_one,null);
+        //Setup the builder and creates the alert
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+
+        //Setups the display window to be at the bottom and transparent
+        Window window = dialog.getWindow();
+        window.setGravity(Gravity.TOP);
+        window.setLayout(CoordinatorLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        //Finds the color picker white button
+        final Button whiteButton =  (Button) mView.findViewById(R.id.player_one_color_white);
+
+        whiteButton.setOnClickListener(new View.OnClickListener(){
+
+            //When the button is pressed:
+            public void onClick(View v) {
+                //Sets the background color to white
+                setBackgroundColor(whiteButton,playerOneBackground);
+            }
+
+        });
+
+        final Button blackButton =  (Button) mView.findViewById(R.id.player_one_color_black);
+        blackButton.setOnClickListener(new View.OnClickListener(){
+
+            //When the button is pressed:
+            public void onClick(View v) {
+                //Sets the background color to black
+                setBackgroundColor(blackButton,playerOneBackground);
+            }
+
+        });
+
+        final Button blueButton  =  (Button)  mView.findViewById(R.id.player_one_color_blue);
+        blueButton.setOnClickListener(new View.OnClickListener(){
+
+            //When the button is pressed:
+            public void onClick(View v) {
+                //Sets the background color to blue
+                setBackgroundColor(blueButton,playerOneBackground);
+            }
+
+        });
+        final Button greenButton =  (Button) mView.findViewById(R.id.player_one_color_green);
+        greenButton.setOnClickListener(new View.OnClickListener(){
+
+            //When the button is pressed:
+            public void onClick(View v) {
+                //Sets the background color to green
+                setBackgroundColor(greenButton,playerOneBackground);
+            }
+
+        });
+        final Button redButton   =  (Button) mView.findViewById(R.id.player_one_color_red);
+
+        redButton.setOnClickListener(new View.OnClickListener(){
+
+            //When the button is pressed:
+            public void onClick(View v) {
+                //Sets the background color to red
+                setBackgroundColor(redButton,playerOneBackground);
+            }
+
+        });
+
+        //Displays the color picker
+        dialog.show();
+    }
+
+
+
+    //Function shows the color picker buttons.
+    protected void displayPlayerTwoColorPicker(){
+        //Create alert builder
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MTG_Counter.this);
+        //Inflate the view that will be displayed
+        View mView = getLayoutInflater().inflate(R.layout.color_popup_two,null);
+        //Setup the builder and creates the alert
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+
+        //Setups the display window to be at the bottom and transparent
+        Window window = dialog.getWindow();
+        window.setGravity(Gravity.BOTTOM);
+        window.setLayout(CoordinatorLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        //Finds the color picker white button
+        final Button whiteButton =  (Button) mView.findViewById(R.id.player_two_color_white);
+
+        whiteButton.setOnClickListener(new View.OnClickListener(){
+
+            //When the button is pressed:
+            public void onClick(View v) {
+                    //Sets the background color to white
+                    setBackgroundColor(whiteButton,playerTwoBackground);
+            }
+
+        });
+
+        final Button blackButton =  (Button) mView.findViewById(R.id.player_two_color_black);
+        blackButton.setOnClickListener(new View.OnClickListener(){
+
+            //When the button is pressed:
+            public void onClick(View v) {
+                //Sets the background color to black
+                setBackgroundColor(blackButton,playerTwoBackground);
+            }
+
+        });
+
+        final Button blueButton  =  (Button)  mView.findViewById(R.id.player_two_color_blue);
+        blueButton.setOnClickListener(new View.OnClickListener(){
+
+            //When the button is pressed:
+            public void onClick(View v) {
+                //Sets the background color to blue
+                setBackgroundColor(blueButton,playerTwoBackground);
+            }
+
+        });
+        final Button greenButton =  (Button) mView.findViewById(R.id.player_two_color_green);
+        greenButton.setOnClickListener(new View.OnClickListener(){
+
+            //When the button is pressed:
+            public void onClick(View v) {
+                //Sets the background color to green
+                setBackgroundColor(greenButton,playerTwoBackground);
+            }
+
+        });
+        final Button redButton   =  (Button) mView.findViewById(R.id.player_two_color_red);
+
+        redButton.setOnClickListener(new View.OnClickListener(){
+
+            //When the button is pressed:
+            public void onClick(View v) {
+                //Sets the background color to red
+                setBackgroundColor(redButton,playerTwoBackground);
+            }
+
+        });
+
+        //Displays the color picker
+        dialog.show();
+    }
+
+
+    //Give a button and an image view , changes the background color of
+    //the image view to the background color of the button.
+    protected void setBackgroundColor(Button button, ImageView background){
+        ColorDrawable buttonColor = (ColorDrawable) button.getBackground();
+
+        background.setBackgroundColor(buttonColor.getColor());
+    }
 
 
 

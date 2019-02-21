@@ -2,15 +2,14 @@
 <resources>
    <color name="colorBlack">#000</color>
    <color name="colorWhite">#fff</color>
-   <color name="darkerRed">#b60404</color>
+   <color name="darkerRed">#6D0000</color>
    <color name="colorGrey">#969393</color>
    <!-- Official MTG colors-->
    <color name="mtgGreen">#00733e</color>
-   <color name="mtgBlack">#2b2b2a</color>
+   <color name="mtgBlack">#463F3E</color>
    <color name="mtgBlue">#0e68ab</color>
    <color name="mtgRed">#d3202a</color>
-   <color name="mtgWhite">#dcd987</color>
-   <!--Other colors-->
-   <color name="lightGreen">#e5ff97</color>
+   <color name="mtgWhite">#f8e7b9</color>
+
 
 </resources>
